@@ -75,4 +75,15 @@ public class Restaurant {
     public int hashCode() {
         return Objects.hash(name, location, openingTime, closingTime);
     }
+
+    public int getTotalSpendings(List<String> selectedItems) {
+        int totalSum = 0;
+        for (String item: selectedItems) {
+            Item itemFound = findItemByName(item);
+            if(itemFound != null) {
+                totalSum += itemFound.getPrice();
+            }
+        }
+        return totalSum;
+    }
 }
